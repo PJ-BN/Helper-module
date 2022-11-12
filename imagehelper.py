@@ -272,3 +272,14 @@ def calculate_results(y_true, y_pred):
                   "recall": model_recall,
                   "f1": model_f1}
   return model_results
+
+
+def plot_random_images(dir_path):
+  file_name = random.sample(sorted(os.listdir(dir_path)),1)
+  file_path = dir_path +"/" +file_name[0]
+  image_name = random.sample(os.listdir(file_path),1)
+  image_path = file_path +"/" + image_name[0]
+  img = mpimg.imread(image_path)
+  plt.imshow(img)
+  plt.axis("off")
+  plt.title(file_name[0])
